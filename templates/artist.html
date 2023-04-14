@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/artist.css">
+</head>
+<body>
+    <div class="hero">
+        <h2 class="logo">
+            Artists in <span>groupie tracker</span>
+       </h2>
+        <div class="search-container" autocomplate="off">
+            <form action="/artist">
+                <input type="text" placeholder="Search.." id="input1" name="input1" list="input">
+                <button type="submit"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu7KzVWO7ircATlgueW9UrQLzL_HSao2Oj2ef3qtgg_2zl2nuzKPxe1vPmKohwr5Q22Q4&usqp=CAU" class="img"></button>
+                <datalist id="input">
+                    {{range .}}
+                    <option value="{{.Name}}"></option>
+                    
+                    {{range .Members}}
+                    <option value="{{.}} - Member"></option>
+                    {{end}}
+                    
+                    {{range $index, $value := .Relations}}
+                        <option value="{{$index}}"></option>
+                        {{end}}
+                        
+                    <option value="{{.CreationDate}}"></option>
+                    <option value="{{.FirstAlbum}}"></option>
+                    {{end}} 
+                </datalist>
+            </form>
+        </div>
+        <div class="filter">
+            <form action="/artist">
+                <header><h2>Filter</h2></header>
+                <div class="member">
+                    <h4 class="member">Member</h4>
+                   1 <input type="checkbox" value="1" name="member" id="member"> 
+                   2 <input type="checkbox" value="2" name="member" id="member"> 
+                   3 <input type="checkbox" value="3" name="member" id="member"> 
+                   4 <input type="checkbox" value="4" name="member" id="member"> 
+                   5 <input type="checkbox" value="5" name="member" id="member"> 
+                   6 <input type="checkbox" value="6" name="member" id="member"> 
+                   7 <input type="checkbox" value="7" name="member" id="member"> 
+                   8 <input type="checkbox" value="8" name="member" id="member">
+                </div>
+                <h4 class="firstd">First Data:</h4>
+                <div class="firstdata">
+                    <div>
+                    <input type="range" class="min" id="min" name="min" placeholder="from..." min="1950" value="1950" max="2020">
+                    <p class="value">value-min:<span id="demo"></span></p>
+                    </div>
+                    <div>
+                    <input type="range" class="min" id="max" name="max" placeholder="to..." min="1950" value="2020" max="2020">
+                    <p class="value">value-max<span id="demo-1"></span></p>
+                    </div>
+                </div>
+                <h4 class="creationD">Creation Date:</h4>
+                <div class="creationDate">
+                    <div>
+                    <!-- <input type="range" class="min-1" id="min-2" name="min-2" min="1950" max="1950" value="1960"> -->
+                    <input type="range" class="min-1" id="min-2" name="min-2" min="1950" max="2020" value="1950">
+                    <p class="value">value-min:<span id="demo-2"></span></p>
+                    </div>
+                    <div>
+                    <input type="range" class="min-1" id="max-2" name="max-2" placeholder="to..." min="1950" max="2020" value="2020">
+                    <p class="value">value-max:<span id="demo-3"></span></p>
+                    </div>
+                </div>
+                <div class="locations">
+                    <h4 class="locatian">Locations:</h4>
+                    <input type="text" class="min-1" id="locations" name="locations" list="loca" placeholder="city...">
+                </div>
+                <input type="submit">
+                <datalist id="loca">
+                    {{range .}}
+                    {{range $index, $value := .Relations}}
+                    <option value="{{$index}}"></option>
+                    {{end}}
+                    {{end}}
+                </datalist>
+            </form>
+        </div>
+        <nav>
+                <ul>
+                    <li><a href="/">Go back home</a></li>
+                </ul>
+                {{if .}}
+            <ul>
+                {{range .}}
+                <div class="artist">
+                    <a href="/artistname?id={{.Id}}">
+                        <div class="name">
+                            <h2>{{.Name}}</h2>
+                        </div>
+                        <img src="{{ .Image }}" alt="{{.Name}} + image">
+                    </a>
+                </div>
+                {{end}}
+            </ul>
+            {{else}}
+            <div class="repo">
+                <h1>What you were looking for unfortunately was not found</h1>
+                <a href="/artist">Back to artists</a>
+            </div>
+            {{end}}
+        </nav>
+    </div>
+    <script>
+        var slider = document.getElementById("min");
+        var output = document.getElementById("demo");
+        var slider1 = document.getElementById("max");
+        var output1 = document.getElementById("demo-1");
+        
+        var slider2 = document.getElementById("min-2");
+        var output2 = document.getElementById("demo-2");
+    
+        var slider3 = document.getElementById("max-2");
+        var output3 = document.getElementById("demo-3");
+    
+        output.innerHTML = slider.value;
+        output1.innerHTML = slider1.value;
+        output2.innerHTML = slider2.value;
+        slider3.innerHTML = slider3.value
+        output3.innerHTML = slider3.value;
+    
+    
+        
+        slider.oninput = function() {
+          output.innerHTML = this.value;
+        }
+        slider1.oninput = function() {
+            output1.innerHTML = this.value;
+        }
+        slider2.oninput = function() {
+          output2.innerHTML = this.value;
+        }
+        slider3.oninput = function() {
+            output3.innerHTML = this.value;
+        }
+        </script>
+</body>
+</html>

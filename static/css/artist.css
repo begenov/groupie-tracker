@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("https://wallpapersmug.com/large/59c97b/concert-hands-up-dark-party.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+ul{ 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 10px;
+    padding: 10px;
+}
+
+.name {
+    background-color: black;
+}
+
+span {
+    color: #ea1538;
+}
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ea1538;
+    transition: .3s;
+}
+
+.logo{
+    padding: 10px;
+    color: white;
+}
+
+.name h2 {
+    color: white;
+    align-self: center;
+    font-size: 15px;
+}
+
+.search-bar {
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.2);
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    backdrop-filter: blur(4px) satirate(180%);
+}
+
+.search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 24px 20px;
+    font-size: 20px;
+    color: #cac7ff;
+}
+
+::placeholder {
+    color: #cac7ff;
+}
+
+.hero .search-container {
+    float: right;
+  }
+  
+  .hero input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+  }
+  
+  .hero .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .hero .search-container button:hover {
+    background: #ccc;
+  }
+  
+  .img {
+    width: 20px;
+    height: 16px;
+  }
+
+  .repo {
+    text-align: center;
+  }
+
+  .repo h1 {
+    font-size: 25px;
+    color: white;
+    background-color: red;
+    justify-content: center;
+  }
+
+  .repo a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 20px;
+  }
+
+  .repo a:hover{
+    color: #ea1538;
+    transition: .3s;
+  }
+
+  .member {
+    color: wheat;
+  }
+  
+  .firstd {
+    color: wheat;
+  }
+  
+  .creationD {
+    color: wheat; 
+  }
+  
+  .min-1 {
+    width: 100px;
+  }
+  
+  .min {
+    width: 100px;
+  }
+  
+  .locatian {
+    color: wheat;
+  }
+  
+  .firstdata {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .value {
+    color: white;
+  }
+  
+  .creationDate {
+    display: flex;
+    justify-content: center;
+  }
+  .filter{
+    width: 500px;
+    height: 350px;
+    background: black;
+    text-align: center; 
+    justify-content: center;
+  }
+  @media only screen and (max-width: 600px) {
+    .filter{
+      width: 400px;
+      height: 350px;
+      background: black;
+      text-align: center; 
+      justify-content: center;
+    }
+  }
+  
+  
+  @media only screen and (max-width: 400px) {
+    .filter{
+      width: 300px;
+      height: 350px;
+      background: black;
+      text-align: center; 
+      justify-content: center;
+    }
+  }

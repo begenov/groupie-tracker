@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/artistname.css">
+</head>
+<body>
+    <div class="profile-card">
+        <div class="card-header">
+            <nav>
+            <div class="pic">
+                <img src="{{.Image}}" alt="">
+            </div>
+            <div class="name"><h1>{{.Name}}</h1></div>
+            <div class="Members">
+                <h2>Members</h2>
+                <ul>
+                    {{range .Members}}
+                        {{.}}
+                    {{end}}
+                </ul>
+            </div>
+            <div class="Creation Date">
+                <h2>Creation Date</h2>
+                <ul>
+                    {{.CreationDate}}
+                </ul>
+            </div>
+            <div class="first-albom">
+                <h2>FirstAlbum</h2>
+                <ul>
+                    {{.FirstAlbum}}
+                </ul>
+            </div>
+            <div class="Dates-Locations">
+                <h2>Dates Locations</h2>
+                <ul>
+                    {{range $index, $value := .Relations}}
+                    <span class="index">{{$index}}</span>
+                        -{{range $value}}
+                            {{.}}
+                         {{end}}
+                    {{end}}
+                </ul>
+                
+            </div>
+            
+            <ul>
+                <p><a href="/artist">Back to the artists</a></p>
+            </ul>
+            <script src="https://api-maps.yandex.ru/2.1/?apikey=c47abfaf-9eb2-4356-8ebc-780279c04196&lang=ru_RU"
+type="text/javascript"></script>
+        </nav>
+        <br>
+        <div class="maps">
+            <div class="geo" id="map"></div>
+        </div>
+        </div>
+    </div>
+</body>
+    <script>
+        ymaps.ready(init);
+        
+        function init() {
+        myMap = new ymaps.Map("map", {
+            center: [0, 0],
+            zoom: 1,
+        });
+        
+        let coords = document.getElementsByClassName("index");
+        console.log(coords)
+        
+        for (let coord of coords) {
+            let newCoord = coord.innerHTML.replace(/-/g, "_");
+            newCoord = newCoord.replace(/_/g, " ");
+        
+            let myGeocoder = ymaps.geocode(newCoord, {
+                results: 1,
+                prefLang: "eng",
+            });
+           
+            myGeocoder.then(function (res) {
+                console.log(myMap.geoObjects.add(res.geoObjects))
+                myMap.geoObjects.add(res.geoObjects);
+            });
+        }
+        }
+        </script>
+</html>
+

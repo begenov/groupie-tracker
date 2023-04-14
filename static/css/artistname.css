@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu", sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    background: url("https://wallpapersmug.com/large/59c97b/concert-hands-up-dark-party.jpg") no-repeat center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-card {
+    width: 400px;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-header {
+    background: #2c3a47;
+    padding: 60px 40px;
+}
+
+.pic {
+    display: inline-block;
+    padding: 8px;
+    background: linear-gradient(130deg, #74b9ff, #e66867);
+    margin: auto;
+    border-radius: 50%;
+    background-size: 200% 200%;
+    animation: animated-gradient 2s linear infinite;
+}
+
+@keyframes animated-gradient  {
+    25% {
+        background-position: left bottom;
+    }
+    50% {
+        background-position: right bottom;
+    }
+    75% {
+        background-position: right top;
+    }
+    100% {
+        background-position: left top;
+    }
+}
+
+.pic img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    color: red;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+h2 {
+    font-size: 23px;
+    color: #f2f2f2;
+} 
+
+ul {
+    font-size: 15px;
+    color: white;
+}
+
+.index {
+    color: rgb(255, 119, 0);
+}
+
+
+nav ul p a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul p a:hover {
+    color: #ea1538;
+    transition: .3s;
+}
+.maps{ display: flex;
+    justify-content: center;
+    
+}
+.geo{
+   
+    height: 300px;
+    width: 500px;
+}
